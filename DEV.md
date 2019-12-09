@@ -5,10 +5,8 @@
 # Modules utilisés
 
 | Function        | Name        | URL
-| ----------------|:---------:|:-----------------------------:|
+|:----------------:|:---------:|:-----------------------------:|
 | Error Reporting | Firebase Crashlytics | `https://www.npmjs.com/package/@react-native-firebase/crashlytics`
-| 
-
 
 
 
