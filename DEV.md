@@ -488,12 +488,9 @@ Create a new file with the filename appcenter-config.json with the following con
 - Avoir un compte google (googleservices@livingcolor.fr)
 - se logguer ici : `https://console.firebase.google.com/`
 - `Add Project`
-- 
 - Cliquez sur `Crashlytics` et `Set up Crashlytics`
-- 
 
 ## Installation
 - `npm i @react-native-firebase/crashlytics`
 - `cd iOS` et `pod install --repo-update` 
 - Builder l'app dans xcode et vérifier que les statistiques arrivent.
-- 
