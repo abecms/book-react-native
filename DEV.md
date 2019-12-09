@@ -537,3 +537,40 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
 
+Au lancement de l'application si l'erreur (visible depuis `adb logcat`) suivante apparait :
+```
+The Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.
+```
+Suivre la liste des modifications suivantes :
+- `android/build.gradle`
+```
+// ..
+buildscript {
+  // ..
+  repositories {
+    // ..
+    maven {
+      url 'https://maven.fabric.io/public'
+    }
+  }
+  // ..
+}
+```
+- `android/build.gradle`
+```
+// ..
+buildscript {
+  // ..
+  dependencies {
+    // ..
+    classpath 'io.fabric.tools:gradle:1.28.1'
+  }
+  // ..
+}
+```
+- `android/app/build.gradle`
+```
+apply plugin: 'com.android.application' // apply after this line
+apply plugin: 'io.fabric'
+// ..
+```
