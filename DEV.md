@@ -488,9 +488,52 @@ Create a new file with the filename appcenter-config.json with the following con
 - Avoir un compte google (googleservices@livingcolor.fr)
 - se logguer ici : `https://console.firebase.google.com/`
 - `Add Project`
+- 
 - Cliquez sur `Crashlytics` et `Set up Crashlytics`
+- Renseignez le Bundle iD que vous trouverez dans l'App Store Connect
+- Téléchargez le fichier `GoogleService-info.plist` proposé par Firebase
+- 
 
 ## Installation
+- `npm i @react-native-firebase/app`
 - `npm i @react-native-firebase/crashlytics`
 - `cd iOS` et `pod install --repo-update` 
+- Dans le fichier 
 - Builder l'app dans xcode et vérifier que les statistiques arrivent.
+
+
+### ANDROID
+
+Add to `android/build.gradle`
+
+```javascript
+buildscript {
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+  }
+  dependencies {
+    ...
+    // Add this line
+    classpath 'com.google.gms:google-services:4.3.2'
+  }
+}
+
+allprojects {
+  ...
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+    ...
+  }
+}
+```
+
+in android/app/build.gradle add crashlytics dependencies.
+
+```javascript
+dependencies {
+...
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+```
+
