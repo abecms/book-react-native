@@ -484,27 +484,28 @@ Create a new file with the filename appcenter-config.json with the following con
 
 # Firebase Crashlytics
 
-## Pré-requis
-- Avoir un compte google (googleservices@livingcolor.fr)
-- se logguer ici : `https://console.firebase.google.com/`
-- `Add Project`
-- 
-- Cliquez sur `Crashlytics` et `Set up Crashlytics`
+## Pré-requisite
+- Add a google account (googleservices@livingcolor.fr)
+
+## Installation
+
+## Common
+- `npm i @react-native-firebase/app`
+- `npm i @react-native-firebase/crashlytics`
+
+### iOS
+- `cd iOS` et `pod install --repo-update`
+- Log into the firebase console - https://console.firebase.google.com/
+- Click on `Crashlytics` et `Set up Crashlytics`
 - Renseignez le Bundle iD que vous trouverez dans l'App Store Connect
 - Téléchargez le fichier `GoogleService-info.plist` proposé par Firebase
 - 
 
-## Installation
-- `npm i @react-native-firebase/app`
-- `npm i @react-native-firebase/crashlytics`
-- `cd iOS` et `pod install --repo-update` 
-- Dans le fichier 
-- Builder l'app dans xcode et vérifier que les statistiques arrivent.
-
-
-### ANDROID
-
-Add to `android/build.gradle`
+### Android
+- Click on `Crashlytics` et `Set up Crashlytics`
+- Fill Bundle iD - You'll find if in google play console of your app
+- Download the `google-services.json` file and put it in `android/app` directory of your project
+- Add to `android/build.gradle`
 
 ```javascript
 buildscript {
@@ -529,7 +530,12 @@ allprojects {
 }
 ```
 
-in android/app/build.gradle add crashlytics dependencies.
+- In `android/app/build.gradle` add crashlytics dependencies at the top of the file
+
+```javascript
+apply plugin: 'com.google.gms.google-services'
+...
+```
 
 ```javascript
 dependencies {
@@ -537,6 +543,11 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
 
+Run / Build the app to see the crashlytics dashboard here ie : 
+`https://console.firebase.google.com/project/tvconso-dd777/crashlytics/app/android:com.lachainedesconsosetcitoyens.lachainedesconsosetdescitoyens/issues?state=open&time=last-seven-days&type=crash`
+
+
+# Troubleshooting
 Au lancement de l'application si l'erreur (visible depuis `adb logcat`) suivante apparait :
 ```
 The Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.
