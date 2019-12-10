@@ -6,7 +6,9 @@
 
 | Function        | Name        | URL
 |:----------------:|:---------:|:-----------------------------:|
+| Firebase | Firebase app | `https://www.npmjs.com/package/@react-native-firebase/app`
 | Error Reporting | Firebase Crashlytics | `https://www.npmjs.com/package/@react-native-firebase/crashlytics`
+
 
 
 
