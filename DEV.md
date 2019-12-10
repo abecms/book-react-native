@@ -560,8 +560,7 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
 
-Run / Build the app to see the crashlytics dashboard here ie : 
-`https://console.firebase.google.com/project/tvconso-dd777/crashlytics/app/android:com.lachainedesconsosetcitoyens.lachainedesconsosetdescitoyens/issues?state=open&time=last-seven-days&type=crash`
+Run / Build the app to see the crashlytics dashboard
 
 
 # Troubleshooting
