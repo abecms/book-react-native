@@ -484,6 +484,11 @@ Create a new file with the filename appcenter-config.json with the following con
 
 # Firebase Crashlytics
 
+## Useful Links
+| Theme        | URL
+|:----------------:|:---------:|
+| Release Note Android | https://firebase.google.com/support/release-notes/android
+
 ## Pré-requisite
 - Add a google account (googleservices@livingcolor.fr)
 
