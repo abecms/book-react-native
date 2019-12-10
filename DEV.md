@@ -502,9 +502,21 @@ Create a new file with the filename appcenter-config.json with the following con
 - `cd iOS` et `pod install --repo-update`
 - Log into the firebase console - https://console.firebase.google.com/
 - Click on `Crashlytics` et `Set up Crashlytics`
-- Renseignez le Bundle iD que vous trouverez dans l'App Store Connect
-- Téléchargez le fichier `GoogleService-info.plist` proposé par Firebase
-- 
+- Fill the app Bundle id define in App Store Connect. ie: com.example.app
+- Download `GoogleService-info.plist` proposed by Firebase
+- Add `GoogleService-info.plist` in Xcode to all targets
+- Add to `ios/app/AppDelegate.m`
+
+```
+@import Firebase;
+
+- (BOOL)application:(UIApplication *)......
+{
+  if ([FIRApp defaultApp] == nil) {
+    [FIRApp configure];
+  }
+.....
+```
 
 ### Android
 - Click on `Crashlytics` et `Set up Crashlytics`
