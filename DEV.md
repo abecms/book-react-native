@@ -477,29 +477,35 @@ Create a new file with the filename appcenter-config.json with the following con
 <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
 ```
 
-## CheatSheet
+## Configure the build through app center
 
-- Dans le channel slack svod taper `/appcenter build master` pour builder et distribuer l'app dans TestFlight
+- Develop branch leads to google alpha distribution and livingcolor testflight group
+- Master branch leads to  google beta distribution and client testflight group
 
-# Firebase Crashlytics
 
-## Useful Links
-| Theme        | URL
-|:----------------:|:---------:|
-| Firebase release note Android | https://firebase.google.com/support/release-notes/android
-| Firebase release note iOS | https://firebase.google.com/support/release-notes/ios
+
+
+# Firebase 
 
 ## Pré-requisite
 - Add a google account (googleservices@livingcolor.fr)
 
+
 ## Installation
+
+https://console.firebase.google.com/
+
+- CLick on `Add project`
+- Name your project
+- Disable Google Analytics for now
+- Project created on Google Firebase
 
 ## Common
 - `npm i @react-native-firebase/app`
 - `npm i @react-native-firebase/crashlytics`
 
-### iOS
-- `cd iOS` et `pod install --repo-update`
+### iOSs
+- `cd ios` et `pod install --repo-update`
 - Log into the firebase console - https://console.firebase.google.com/
 - Click on `Crashlytics` et `Set up Crashlytics`
 - Fill the app Bundle id define in App Store Connect. ie: com.example.app
@@ -517,8 +523,11 @@ Create a new file with the filename appcenter-config.json with the following con
   }
 .....
 ```
+- Run and build you app in xcode simulator
+
 
 ### Android
+- Log into the firebase console - https://console.firebase.google.com/
 - Click on `Crashlytics` et `Set up Crashlytics`
 - Fill Bundle iD - You'll find if in google play console of your app
 - Download the `google-services.json` file and put it in `android/app` directory of your project
@@ -533,7 +542,7 @@ buildscript {
   dependencies {
     ...
     // Add this line
-    classpath 'com.google.gms:google-services:4.3.2'
+    classpath('com.google.gms:google-services:4.3.2')
   }
 }
 
@@ -550,7 +559,7 @@ allprojects {
 - In `android/app/build.gradle` add crashlytics dependencies at the top of the file
 
 ```javascript
-apply plugin: 'com.google.gms.google-services'
+apply plugin: "com.google.gms.google-services"
 ...
 ```
 
@@ -559,8 +568,8 @@ dependencies {
 ...
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
-
-Run / Build the app to see the crashlytics dashboard
+- Go To android Studio / File => Sync project with gradle files
+- Run / Build the app to see the crashlytics dashboard
 
 
 # Troubleshooting
@@ -601,3 +610,8 @@ apply plugin: 'com.android.application' // apply after this line
 apply plugin: 'io.fabric'
 // ..
 ```
+## Useful Links
+| Theme        | URL
+|:----------------:|:---------:|
+| Firebase release note Android | https://firebase.google.com/support/release-notes/android
+| Firebase release note iOS | https://firebase.google.com/support/release-notes/ios
