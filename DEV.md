@@ -486,7 +486,8 @@ Create a new file with the filename appcenter-config.json with the following con
 ## Useful Links
 | Theme        | URL
 |:----------------:|:---------:|
-| Release Note Android | https://firebase.google.com/support/release-notes/android
+| Firebase release note Android | https://firebase.google.com/support/release-notes/android
+| Firebase release note iOS | https://firebase.google.com/support/release-notes/ios
 
 ## Pré-requisite
 - Add a google account (googleservices@livingcolor.fr)
