@@ -536,13 +536,17 @@ https://console.firebase.google.com/
 ```javascript
 buildscript {
   repositories {
-    // Check that you have the following line (if not, add it):
+    // Check that you have the following lines (if not, add it):
     google()  // Google's Maven repository
+    maven {
+      url 'https://maven.fabric.io/public'
+    }
   }
   dependencies {
     ...
     // Add this line
     classpath('com.google.gms:google-services:4.3.2')
+    classpath('io.fabric.tools:gradle:1.29.0')
   }
 }
 
@@ -559,57 +563,23 @@ allprojects {
 - In `android/app/build.gradle` add crashlytics dependencies at the top of the file
 
 ```javascript
-apply plugin: "com.google.gms.google-services"
+...
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
 ...
 ```
+and
 
 ```javascript
 dependencies {
 ...
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
+
 - Go To android Studio / File => Sync project with gradle files
 - Run / Build the app to see the crashlytics dashboard
 
 
-# Troubleshooting
-Au lancement de l'application si l'erreur (visible depuis `adb logcat`) suivante apparait :
-```
-The Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.
-```
-Suivre la liste des modifications suivantes :
-- `android/build.gradle`
-```
-// ..
-buildscript {
-  // ..
-  repositories {
-    // ..
-    maven {
-      url 'https://maven.fabric.io/public'
-    }
-  }
-  // ..
-}
-```
-- `android/build.gradle`
-```
-// ..
-buildscript {
-  // ..
-  dependencies {
-    // ..
-    classpath 'io.fabric.tools:gradle:1.28.1'
-  }
-  // ..
-}
-```
-- `android/app/build.gradle`
-```
-apply plugin: 'com.android.application' // apply after this line
-apply plugin: 'io.fabric'
-// ..
-```
 ## Useful Links
 | Theme        | URL
 |:----------------:|:---------:|
