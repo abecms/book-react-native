@@ -1,13 +1,19 @@
 
 
-
-
-# Modules utilisés
+# Tools
 
 | Function        | Name        | URL
 |:----------------:|:---------:|:-----------------------------:|
-| Firebase | Firebase app | https://www.npmjs.com/package/@react-native-firebase/app
+| Appcenter | Build / Distribute / CodePush | https://appcenter.ms/apps
+| Firebase | Crashlytics / Analytics| https://firebase.google.com/
+
+# Modules RN utilisés
+
+| Function        | Name        | URL
+|:----------------:|:---------:|:-----------------------------:|
+| Firebase | Firebase App | https://www.npmjs.com/package/@react-native-firebase/app
 | Error Reporting | Firebase Crashlytics | https://www.npmjs.com/package/@react-native-firebase/crashlytics
+
 
 # Install
 
@@ -477,10 +483,36 @@ Create a new file with the filename appcenter-config.json with the following con
 <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
 ```
 
-## Configure the build through app center
+## Build
 
 - Develop branch leads to google alpha distribution and livingcolor testflight group
 - Master branch leads to  google beta distribution and client testflight group
+
+## CodePush
+
+- List deployment keys - `appcenter codepush deployment list -a <ownerName>/<appName> --displayKeys'
+
+| Name       | Keys                                  |
+|:-----------|:--------------------------------------|
+| Production | UHiNNFHCFzUy1PAW4B1NnOvvLLaLAkMQMUPhw |
+| Staging    | GmKAWJiVTqg7xr1xvVXJ6d3K8D4XOxaXH6UkR |
+
+- run to add the module codepush to project   
+`npm install --save react-native-code-push`
+
+### iOS
+
+- `cd ios` et `pod install --repo-update`
+- Once your Xcode project has been set up to build/link the CodePush plugin, you need to configure your app to consult CodePush for the location of your JS bundle, since it is responsible for synchronizing it with updates that are released to the CodePush server. To do this, perform the following steps:
+
+- Open up the `AppDelegate.m` file, and add an import statement for the CodePush headers:  
+`#import <CodePush/CodePush.h>`
+- Find the following line of code, which sets the source URL for bridge for production releases:  
+`return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];`
+- Replace it with this line:  
+`return [CodePush bundleURL];`
+
+
 
 
 
@@ -569,12 +601,25 @@ apply plugin: 'io.fabric'
 ...
 ```
 and
-
 ```javascript
 dependencies {
 ...
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 ```
+To enable react-native stack trace in Crashlytics / Appcenter 
+
+- Add in `android/app/build.gradle`
+
+```javascript
+def enableProguardInReleaseBuilds = true
+```
+
+- Add in `proguard-rules.pro` add
+
+```
+-printmapping mapping.txt
+```
+It will generate a `mapping.txt` in `android/build/mapping/release`.
 
 - Go To android Studio / File => Sync project with gradle files
 - Run / Build the app to see the crashlytics dashboard
