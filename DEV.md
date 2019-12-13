@@ -578,6 +578,15 @@ project(':react-native-code-push').projectDir = new File(rootProject.projectDir,
 ...
 ```
 
+In `android/app/src/main/res/values/strings.xml`
+
+```java
+<resources>
+...
+    <string name="CodePushDeploymentKey" moduleConfig="true" translatable="false">KgH27NC5MoBOcJjlx4clSFeIauiBLGDkFj-7m</string>
+</resources>
+```
+
 # Firebase 
 
 ## Pré-requisite
