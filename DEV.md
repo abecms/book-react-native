@@ -494,8 +494,8 @@ Create a new file with the filename appcenter-config.json with the following con
 
 | Name       | Keys                                  |
 |:-----------|:--------------------------------------|
-| Production | UHiNNFHCFzUy1PAW4B1NnOvvLLaLAkMQMUPhw |
-| Staging    | GmKAWJiVTqg7xr1xvVXJ6d3K8D4XOxaXH6UkR |
+| Production | someProductionkey |
+| Staging    | someStagingkey |
 
 - run to add the module codepush to project   
 `npm install --save react-native-code-push`
@@ -512,10 +512,71 @@ Create a new file with the filename appcenter-config.json with the following con
 - Replace it with this line:  
 `return [CodePush bundleURL];`
 
+### Android
+
+in `android/app/build.gradle` 
+
+```java
+apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+```
+
+```java
+dependencies {
+  ....
+    compile project(':react-native-code-push')
+  ...
+```
+
+in `android/app/src/main/java/com/nameoftheapp/app/MainApplication.java`
+
+```java
+// 1. Import the plugin class.
+import com.microsoft.codepush.react.CodePush;
+
+public class MainApplication extends Application implements ReactApplication {
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+        ...
+        // 2. Override the getJSBundleFile method in order to let
+        // the CodePush runtime determine where to get the JS
+        // bundle location from on each app start
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
+        }
 
 
+        @Override
+        protected List<ReactPackage> getPackages() {
+          @SuppressWarnings("UnnecessaryLocalVariable")
+          List<ReactPackage> packages = new PackageList(this).getPackages();
+          // 3. Instantiate an instance of the CodePush runtime and add it to the list of
+          // existing packages, specifying the right deployment key. If you don't already
+        // have it, you can run "appcenter codepush deployment list -a <ownerName>/<appName> --displayKeys" to retrieve your key.
+          new CodePush("deployment-key-here", MainApplication.this, BuildConfig.DEBUG);
+          return packages;
+        }
 
+```
 
+in `android/build.gradle` 
+```java
+...
+    dependencies {
+        ...
+        classpath('com.google.gms:google-services:4.3.3')
+        ...
+```
+
+in `android/settings.gradle` 
+
+```java 
+...
+include ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+...
+```
 
 # Firebase 
 
@@ -623,7 +684,6 @@ It will generate a `mapping.txt` in `android/build/mapping/release`.
 
 - Go To android Studio / File => Sync project with gradle files
 - Run / Build the app to see the crashlytics dashboard
-
 
 ## Useful Links
 | Theme        | URL
