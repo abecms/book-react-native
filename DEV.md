@@ -13,6 +13,7 @@
 |:----------------:|:---------:|:-----------------------------:|
 | Firebase | Firebase App | https://www.npmjs.com/package/@react-native-firebase/app
 | Error Reporting | Firebase Crashlytics | https://www.npmjs.com/package/@react-native-firebase/crashlytics
+| Error Reporting | Sentry | https://www.npmjs.com/package/@sentry/react-native
 
 
 # Install
@@ -699,3 +700,24 @@ It will generate a `mapping.txt` in `android/build/mapping/release`.
 |:----------------:|:---------:|
 | Firebase release note Android | https://firebase.google.com/support/release-notes/android
 | Firebase release note iOS | https://firebase.google.com/support/release-notes/ios
+
+# Sentry
+ 
+## Install
+```
+npm install @sentry/react-native --save
+# or
+yarn add @sentry/react-native
+```
+Before run the following command, make sure the project exists in Sentry.
+When you run this wizard, choose your sentry project to auto-configuration
+```
+yarn sentry-wizard -i reactNative -p ios android
+```
+
+### iOS
+```
+cd ios
+pod install
+```
+
