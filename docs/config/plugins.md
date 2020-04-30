@@ -9,6 +9,11 @@ Une fois l'install faite, aller dans /ios et faire ```pod update```
 npm install --save react-native-bootsplash
 ```
 
+### IOS
+Dans AppDelegate.m:
+- Ajouter ```#import "RNBootSplash.h" ```
+- ```[RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];``` après `rootViewController.view = rootView;`
+
 ### Assets generation
 In order to speed up the setup, we provide a CLI to resize assets, create the Android Drawable XML file and the iOS Storyboard file automatically
 
