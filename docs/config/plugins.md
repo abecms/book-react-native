@@ -2,18 +2,19 @@
 Pour tous les plugins RN
 Une fois l'install faite, aller dans /ios et faire ```pod update```
 
-## react-native-splash-screen
-https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
+## [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash)
 
 ### Install
 ```
-npm i --save react-native-splash-screen
+npm install --save react-native-bootsplash
 ```
 
-### IOS
-Dans AppDelegate.m:
-- Ajouter ```#import "RNSplashScreen.h" ```
-- ``` [RNSplashScreen show];``` à la fin de la méthode didFinishLaunchingWithOptions (avant le return YES)
+### Assets generation
+In order to speed up the setup, we provide a CLI to resize assets, create the Android Drawable XML file and the iOS Storyboard file automatically
+
+```
+$ npx generate-bootsplash
+```
 
 
 ## react-native-vector-icons

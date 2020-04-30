@@ -2,7 +2,7 @@
 ## Renommer un projet react-native
 
 Utilisez le package npm `react-native-rename`
-- Installation en global sur le poste `yarn global add react-native-rename` ou `npm install react-native-rename -g`
+- Installation en global sur le poste `npm install react-native-rename -g`
 - Utilisation
 
 ### Usage
