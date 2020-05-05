@@ -1,31 +1,32 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Deploy Docusaurus
+name: github pages
 
 on:
   push:
-    branches: [ master ]
+    branches:
+    - master
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@master
 
+    - name: setup node
+      uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build --if-present
-    # - name: deploy 
-    #   run: npm run deploy
-    #   env:
-    #     GIT_USER: gonzalezemmanuel
+        node-version: '12.16'
+
+    - name: install
+      working-directory: ./
+      run: npm install
+
+    - name: build
+      working-directory: ./
+      run: npm run build --if-present
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./build
