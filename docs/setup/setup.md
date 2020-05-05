@@ -150,3 +150,4 @@ Now build and launch your app, then go to the Analytics section. You should see 
 il faut :
 * Un certificat iOS au format p12
 * Un provisionning profile 
+* Xcode
