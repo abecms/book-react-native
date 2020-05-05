@@ -24,4 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build --if-present
+  deploy:
+    with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     - run: npm run deploy
