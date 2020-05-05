@@ -24,7 +24,7 @@ jobs:
       working-directory: ./
       run: npm run build
 
-      - name: Deploy 🚀
+    - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
