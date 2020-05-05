@@ -22,7 +22,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GIT_USER: gonzalezemmanuel
     - run: npm install
     - run: npm run build --if-present
     - run: npm run deploy
