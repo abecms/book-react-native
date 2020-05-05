@@ -144,3 +144,9 @@ Now build and launch your app, then go to the Analytics section. You should see 
 ## CheatSheet
 
 - Dans le channel slack #yoodoogood taper `/appcenter build master` pour builder et distribuer l'app dans TestFlight
+
+# Générer une ipa
+
+il faut :
+* Un certificat iOS au format p12
+* Un provisionning profile 
