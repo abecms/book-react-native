@@ -176,3 +176,9 @@ Votre iPAd connecté en mode supervisé via un cable USB à votre Mac, ouvrez Ap
 
 Pour retirer ce mode de l'iPad, le reconnecter à votre Mac et retirer cette option depuis Apple Configurator.
 
+# Générer une ipa
+
+il faut :
+* Un certificat iOS au format p12
+* Un provisionning profile
+* Xcode
