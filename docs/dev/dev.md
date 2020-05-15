@@ -44,3 +44,10 @@ applinks:$domain
 
 Pour finir il faut ajouter une Url Type (dispo dans Xcode depuis l'onglet Info)
 Saisir un `identifier` (peu importe la valeur), et un `URL Schemes` (qui correspond au nom du package)
+
+## Mettre en place la fonctionnalité de download (vidéo / son / fichier)
+
+## Créer un bouoton swipeable comme gmail (on swipe, une action apparait que l'on peut déclencher)
+
+Il faut utiliser la librairie `react-native-gesture-handler/Swipeable`
+

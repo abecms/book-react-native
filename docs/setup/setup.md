@@ -144,3 +144,35 @@ Now build and launch your app, then go to the Analytics section. You should see 
 ## CheatSheet
 
 - Dans le channel slack #yoodoogood taper `/appcenter build master` pour builder et distribuer l'app dans TestFlight
+
+## Styled components
+Nous utilisons pour tous nos projets la librairie StyledComponents
+
+Voici comment l'utiliser :
+1. Il faut analyser les components de l'app et préparer les styles communs (comme Container, SafeView ...) qui se retrouveront dans Theme.js
+2. Créer un répertoire Styled et dans ce répertoire déposer les fichiers de styles : Theme.js + un fichier par screen ou composant qui a besoin de ses propres styles. ex.
+
+```
+Styled/
+  Theme.js
+  Screens/
+    Homepage.js
+    Download.js
+  Components/
+    Player/
+      Top.js
+      Middle.js
+      Bottom.js
+```
+
+
+## Créer une app de démo pour un store : Mode kiosk
+
+Ce mode s'appelle `Single App Mode`. Pour placer un iPad ou iPhone dans ce mode, il faut installer sur votre Mac "Apple Configurator".
+
+Ce mode permet de bloquer l'iPad sur une seule app sans qu'il soit possible d'en sortir.
+
+Votre iPAd connecté en mode supervisé via un cable USB à votre Mac, ouvrez Apple Configurator et selectionnez le device. Cliquer sur le menu `actions`, puis `Advanced` et sélectionner `Start Single App Mode`. Vous pourrez ensuite choisir les options souhaitées.
+
+Pour retirer ce mode de l'iPad, le reconnecter à votre Mac et retirer cette option depuis Apple Configurator.
+

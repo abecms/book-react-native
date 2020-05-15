@@ -59,3 +59,34 @@ onPress={() =>
 ```
 
 L'astuce ici est de faire un popToTop() qui ramène à la racine du stack puis d'aller à l'écran d'origine.
+
+# error Use of undeclared identifier '...'
+If you have properly installed your plugin, make sure that your import (in `AppDelegate.m` for example) before any `#if DEBUG`
+
+ie. GOOD
+```
+    #import "RNBootSplash.h"
+
+    #if DEBUG
+    #import <FlipperKit/FlipperClient.h>
+    #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
+    #import <FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h>
+    #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
+    #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
+    #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
+
+```
+
+BAD
+```
+    #if DEBUG
+    #import <FlipperKit/FlipperClient.h>
+    #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
+    #import <FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h>
+    #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
+    #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
+    #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
+
+     #import "RNBootSplash.h"
+
+```
