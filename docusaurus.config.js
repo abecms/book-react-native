@@ -68,8 +68,8 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Abe SAS. Built with Docusaurus.`,
     },
     algolia: {
-      apiKey: '0d9d1e39a8757f562ff84603cf0ea7b4',
-      indexName: 'reactnative_stickers_book',
+      apiKey: '938095a7ee1084e1c71ca6945c7e1eb3',
+      indexName: 'react-native-stickers-book',
       algoliaOptions: {}, // Optional, if provided by Algolia
     },
   },
