@@ -92,10 +92,10 @@ BAD
 ```
 
 # Créer une font à partir de SVG fournies
-1. Extraire les icons depuis les sketch (ou psd) au format svg
+1. Extraire les icones depuis les sketch (ou psd) au format svg
 2. Aller sur icomoon.io, dans projet : https://icomoon.io/app/#/projects
     - Créer un nouveau projet puis cliquer sur LOAD
-    - Puis cliquer sur IMPORT ICONS dans la barre de menu
-    - Sélectionnées les icons importées dans le projet
+    - Puis cliquer sur IMPORT ICONES dans la barre de menu
+    - Sélectionner les icones importées dans le projet
     - Puis cliquer sur GENERATE FONT dans le menu footer
     - Puis cliquer sur DOWNLOAD dans le menu footer
