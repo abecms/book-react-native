@@ -7,7 +7,7 @@
 
 module.exports = {
   docs: {
-    Setup: ['setup/introduction', 'setup/setup'],
+    Setup: ['setup/introduction', 'setup/exploitation', 'setup/setup'],
     Configuration: ['config/plugins', 'config/navigation'],
     Dynamisation: ['dynamisation/dynamisation'],
     Development: ['dev/dev', 'dev/tips'],
